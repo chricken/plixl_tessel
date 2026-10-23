@@ -1,0 +1,7 @@
+{
+  "name": "plixl_tessel",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Web app: creates an image mosaic from many images (Vanilla JS + Canvas API)"
+}

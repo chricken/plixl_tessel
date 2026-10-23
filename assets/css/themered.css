@@ -1,0 +1,13 @@
+:root[data-theme="red"] {
+  --bg: #f9eeee;
+  --panel: #ffffff;
+  --text: #2e1717;
+  --muted: #7d5c5c;
+  --accent: #c62828;
+  --accent-contrast: #ffffff;
+  --border: #e0c8c8;
+  --dropzone-bg: #fdf6f6;
+  --success: #2e7d32;
+  --error: #c62828;
+  --warning: #b26a00;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>plixl tessel — image mosaic</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/themelight.css" />
+  <link rel="stylesheet" href="assets/css/themedark.css" />
+  <link rel="stylesheet" href="assets/css/themegreen.css" />
+  <link rel="stylesheet" href="assets/css/themered.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1 class="app-header__title">plixl tessel</h1>
+    <div id="theme-switcher" class="app-header__theme"></div>
+  </header>
+
+  <main class="app-main">
+    <div class="app-main__column">
+      <section class="panel">
+        <h2>Source images</h2>
+        <div id="source-drop" class="panel__block"></div>
+        <div id="default-images" class="panel__block"></div>
+        <div id="loaded-count" class="loaded-count">Loaded images: 0</div>
+        <div id="source-progress"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Target image</h2>
+        <div id="target-drop"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Settings</h2>
+        <div id="settings"></div>
+      </section>
+    </div>
+
+    <div class="app-main__column">
+      <section class="panel output-panel">
+        <h2>Output</h2>
+        <div id="mosaic-stack" class="mosaic-stack">
+          <div id="target-preview"></div>
+          <div id="output-canvas" class="output-canvas"></div>
+        </div>
+        <div id="render-progress" class="panel__block"></div>
+        <div id="opacity-control" class="panel__block"></div>
+        <div class="panel__row output-actions">
+          <button id="run-button" class="btn btn--primary" type="button" disabled>Create mosaic</button>
+          <button id="download-button" class="btn" type="button" disabled>Download PNG</button>
+        </div>
+        <div id="status" class="status" role="status"></div>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,450 @@
+:root {
+  --bg: #f5f5f7;
+  --panel: #ffffff;
+  --text: #1d1d1f;
+  --muted: #6e6e73;
+  --accent: #0071e3;
+  --accent-contrast: #ffffff;
+  --border: #d2d2d7;
+  --dropzone-bg: #fafafa;
+  --success: #248a3d;
+  --error: #d70015;
+  --warning: #9a6700;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.45;
+}
+
+/* ---------- Header ---------- */
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel);
+}
+
+.app-header__title {
+  font-size: 1.15rem;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Layout ---------- */
+
+.app-main {
+  display: grid;
+  grid-template-columns: minmax(340px, 460px) minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.app-main__column {
+  display: grid;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+@media (max-width: 960px) {
+  .app-main {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Panels ---------- */
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+}
+
+.panel h2 {
+  margin: 0 0 0.9rem;
+  font-size: 1rem;
+}
+
+.panel__block {
+  margin-bottom: 0.9rem;
+}
+
+.panel__block:last-child {
+  margin-bottom: 0;
+}
+
+.panel__row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.output-panel {
+  position: sticky;
+  top: 1.25rem;
+}
+
+@media (max-width: 960px) {
+  .output-panel {
+    position: static;
+  }
+}
+
+/* ---------- Fields ---------- */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.9rem;
+}
+
+.field__label {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+
+input:focus-visible,
+select:focus-visible,
+.dropzone:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.settings__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+/* ---------- Range input ---------- */
+
+.input-range__row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.input-range__control {
+  flex: 1;
+  accent-color: var(--accent);
+}
+
+.input-range__number {
+  width: 6rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.input-range__value {
+  min-width: 3.5rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ---------- Checkbox ---------- */
+
+.input-checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.input-checkbox span {
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.input-checkbox__control {
+  accent-color: var(--accent);
+  width: 1rem;
+  height: 1rem;
+}
+
+/* ---------- Drop zone ---------- */
+
+.dropzone {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  background: var(--dropzone-bg);
+  padding: 1.1rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.dropzone:hover,
+.dropzone--over {
+  border-color: var(--accent);
+}
+
+.dropzone__label {
+  font-weight: 600;
+}
+
+.dropzone__hint {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 0.15rem;
+}
+
+.dropzone__count {
+  margin-top: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------- Progress ---------- */
+
+.progress {
+  margin-top: 0.25rem;
+}
+
+.progress__bar {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.progress__fill {
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+
+.progress__label {
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.progress__list {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.78rem;
+}
+
+.progress__list:empty {
+  display: none;
+}
+
+.progress__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.2rem 0.55rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.progress__item:last-child {
+  border-bottom: none;
+}
+
+.progress__name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.progress__state {
+  color: var(--muted);
+}
+
+.badge {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.badge--pending {
+  background: var(--muted);
+}
+
+.badge--processing {
+  background: var(--accent);
+}
+
+.badge--done {
+  background: var(--success);
+}
+
+.badge--error {
+  background: var(--error);
+}
+
+.loaded-count {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.btn:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+.btn--primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- Mosaic stack (mosaic over target preview) ---------- */
+
+.mosaic-stack {
+  display: grid;
+}
+
+.mosaic-stack > * {
+  grid-area: 1 / 1;
+  min-width: 0;
+}
+
+.mosaic-stack canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.output-canvas canvas {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--dropzone-bg);
+}
+
+.output-actions {
+  margin-top: 0.9rem;
+}
+
+/* ---------- Image preview ---------- */
+
+.image-preview {
+  display: none;
+}
+
+.image-preview--visible {
+  display: block;
+}
+
+.image-preview__label {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+
+.image-preview__canvas {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--dropzone-bg);
+}
+
+/* ---------- Status ---------- */
+
+.status {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  min-height: 1.2em;
+}
+
+.status--ok {
+  color: var(--success);
+}
+
+.status--warn {
+  color: var(--warning);
+}
+
+.status--error {
+  color: var(--error);
+}
+
+/* ---------- Color input ---------- */
+
+.input-color__control {
+  width: 3.5rem;
+  height: 2.1rem;
+  padding: 0.15rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  cursor: pointer;
+}
+
+.input-color__control:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- Render progress ---------- */
+
+.render-progress {
+  display: none;
+}
+
+.render-progress--visible {
+  display: block;
+}
